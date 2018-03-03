@@ -1,0 +1,11 @@
+body {
+  overflow: hidden;
+  background: #232323;
+}
+
+canvas {
+  position: absolute;
+  top: 50vh;
+  left: 50vw;
+  transform: translate(-50%, -50%);
+}
