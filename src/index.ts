@@ -8,13 +8,14 @@ interface Point {
   y: number;
 }
 
-const epicycle: Epicycle = {
-  child: {
-    period: 2.125,
-    size: 50,
-  },
-  period: 1,
-  size: 50,
-};
+const epicycle = new Epicycle(
+  1,
+  50,
+  0,
+  new Epicycle(
+    2.125,
+    50,
+  ),
+);
 
 render(random(100));
