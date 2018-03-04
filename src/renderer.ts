@@ -1,4 +1,4 @@
-import Epicicle from "./epicicle";
+import Epicycle from "./epicycle";
 
 const ctx = (document.getElementById("canvas") as HTMLCanvasElement).getContext("2d")!;
 const pathCtx = (document.getElementById("pathCanvas") as HTMLCanvasElement).getContext("2d")!;
@@ -20,7 +20,7 @@ document.addEventListener("keyup", (e) => {
   }
 });
 
-function getSize(e: Epicicle): number {
+function getSize(e: Epicycle): number {
   length += 1;
   return e.size * 2 + (e.child ? getSize(e.child) : 0);
 }
@@ -32,7 +32,7 @@ function pol(r: number, th: number) {
   };
 }
 
-function draw(e: Epicicle, x: number, y: number, i: number) {
+function draw(e: Epicycle, x: number, y: number, i: number) {
   const point = pol(e.size, t * e.period + (e.offset ? e.offset : 0));
   ctx.beginPath();
   ctx.strokeStyle = "hsla(" + (length - i) / length * 360 + "deg, 100%, 75%, .5)";
@@ -49,8 +49,8 @@ function draw(e: Epicicle, x: number, y: number, i: number) {
   }
 }
 
-function render(epicicle: Epicicle) {
-  const size = getSize(epicicle);
+function render(epicycle: Epicycle) {
+  const size = getSize(epicycle);
   ctx.canvas.width = size;
   ctx.canvas.height = size;
   pathCtx.canvas.width = size;
@@ -59,7 +59,7 @@ function render(epicicle: Epicicle) {
   function iterate() {
     pathCtx.clearRect(0, 0, pathCtx.canvas.width, pathCtx.canvas.height);
     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
-    draw(epicicle, ctx.canvas.width / 2, ctx.canvas.height / 2, 0);
+    draw(epicycle, ctx.canvas.width / 2, ctx.canvas.height / 2, 0);
     ctx.closePath();
     t += speed;
     requestAnimationFrame(iterate);

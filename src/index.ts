@@ -1,4 +1,4 @@
-import Epicicle from "./epicicle";
+import Epicycle from "./epicycle";
 import random from "./random";
 import render from "./renderer";
 import "./style.css";
@@ -8,7 +8,7 @@ interface Point {
   y: number;
 }
 
-const epicicle: Epicicle = {
+const epicycle: Epicycle = {
   child: {
     period: 2.125,
     size: 50,
