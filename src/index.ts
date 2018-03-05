@@ -1,7 +1,7 @@
 import Epicycle from "./epicycle";
-import random from "./random";
 import render from "./renderer";
 import "./style.css";
+import { random } from "./utils";
 
 interface Point {
   x: number;
@@ -13,8 +13,8 @@ const epicycle = new Epicycle(
   50,
   0,
   new Epicycle(
-    2.125,
-    50,
+    2,
+    25,
   ),
 );
 
