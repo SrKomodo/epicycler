@@ -19,7 +19,7 @@ class Epicycle {
     this.child = child;
   }
 
-  public draw(t: number, x: number, y: number, ctx: CanvasRenderingContext2D, pathCtx: CanvasRenderingContext2D) {
+  public draw(t: number, x: number, y: number, ctx: CanvasRenderingContext2D, pathCtx: Path2D) {
     const tx = this.radius * Math.cos(t * this.period + this.offset) + x;
     const ty = this.radius * Math.sin(t * this.period + this.offset) + y;
 
