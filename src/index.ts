@@ -3,9 +3,10 @@ import "./style.css";
 import { random } from "./utils";
 
 const ctx = (document.getElementById("canvas") as HTMLCanvasElement).getContext("2d", { alpha: false })!;
-const path = new Path2D();
 
+let path = new Path2D();
 let t = 0;
+let speed = .01;
 let epicycle = random(100);
 const size = epicycle.size + 4;
 
@@ -23,7 +24,30 @@ function iterate() {
   ctx.strokeStyle = "#808080";
   ctx.stroke();
 
-  t += .01;
+  t += speed;
   requestAnimationFrame(iterate);
 }
 requestAnimationFrame(iterate);
+
+document.addEventListener("keypress", (e) => {
+  switch (e.key) {
+    case ",":
+      speed /= 2;
+      break;
+    case ".":
+      speed *= 2;
+      break;
+    case "r":
+      path = new Path2D();
+      t = 0;
+      break;
+    case "n":
+      path = new Path2D();
+      t = 0;
+      epicycle = random(100);
+      break;
+    case "c":
+      path = new Path2D();
+      break;
+  }
+});
