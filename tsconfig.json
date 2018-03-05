@@ -2,7 +2,7 @@
   "compilerOptions": {
     "strict": true,
     "target": "es6",
-    "inlineSourceMap": true
+    "sourceMap": true
   },
   "include": ["src/**/*"]
 }
