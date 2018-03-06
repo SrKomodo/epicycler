@@ -1,6 +1,9 @@
 body {
   overflow: hidden;
+  margin: 0;
   background: #232323;
+  color: #aaa;
+  font-family: monospace;
 }
 
 canvas {
@@ -8,4 +11,45 @@ canvas {
   top: 50vh;
   left: 50vw;
   transform: translate(-50%, -50%);
+}
+
+#help {
+  position: absolute;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.hidden {
+  opacity: 0;
+  transition: opacity 1s;
+}
+
+#help pre {
+  display: block;
+  padding: 3px 0;
+  margin: 0;
+}
+
+#help kbd {
+  padding: 1px;
+  border: 1px solid #aaa;
+  border-radius: 3px;
+}
+
+@keyframes fade-out {
+  to {
+    opacity: 0;
+  }
+}
+
+#action {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.fadeout {
+  animation: fade-out 3s both;
 }
