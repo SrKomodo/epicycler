@@ -1,11 +1,18 @@
 import Epicycle from "./epicycle";
 
-function random(length: number, i: number = 0): Epicycle {
+function random(length: number, looping: boolean, circles: boolean, i: number = 0): Epicycle {
+  let period = Math.random() * 5;
+  if (!circles) {
+    period = period * 2 - 5;
+  }
+  if (looping) {
+    period = Math.floor(period);
+  }
   return new Epicycle(
-    Math.random() * 5,
+    period,
     Math.random() * 50,
     Math.random() * Math.PI * 2,
-    i < length ? random(length, i + 1) : undefined,
+    i < length ? random(length, looping, circles, i + 1) : undefined,
   );
 }
 
